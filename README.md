@@ -8,4 +8,6 @@ Dagger2学习笔记
 Component定义方法的规则
 
 1）对应上面苹果容器的例子，Component的方法输入参数一般只有一个，对应了需要注入的Container。有输入参数返回值类型就是void 
-2）Component的方法可以没有输入参数，但是就必须有返回值
+2）Component的方法可以没有输入参数，但是就必须有返回值：
+Step1：返回的实例会先从事先定义的Module中查找，如果找不到跳到Step2 
+Step2 : 使用该类带@Inject的构造器来生成返回的实例，并同时也会递归注入构造器参数以及带@Inject的成员变量
